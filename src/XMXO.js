@@ -10,7 +10,7 @@ export default class XMXO extends Component {
             noun: '',
             verbIsReady: false,
             nounIsReady: false,
-            static: true,
+            static: false,
         }
     }
 
@@ -23,7 +23,7 @@ export default class XMXO extends Component {
             : getRandomNoun()
                 .then((randomNoun) => {
                     this.setState(() => ({
-                        noun: `${randomNoun.word[0].toUpperCase()}${randomNoun.word.slice(1)}`,
+                        noun: `${randomNoun.data.word[0].toUpperCase()}${randomNoun.data.word.slice(1)}`,
                         nounIsReady: true
                     }))
                 }).catch(({ message }) => {
@@ -41,7 +41,7 @@ export default class XMXO extends Component {
             : getRandomVerb()
                 .then((randomVerb) => {
                     this.setState(() => ({
-                        verb: `${randomVerb.word[0].toUpperCase()}${randomVerb.word.slice(1)}`,
+                        verb: `${randomVerb.data.word[0].toUpperCase()}${randomVerb.data.word.slice(1)}`,
                         verbIsReady: true
                     }))
                 }).catch(({ message }) => {
